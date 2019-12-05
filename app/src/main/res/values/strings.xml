@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Manjinder_C0762203_MT</string>
+    <string-array name="cars">
+        <item>Please Choose a car</item>
+        <item>BMW</item>
+        <item>Audi</item>
+        <item>Cadillac</item>
+        <item>Volks Wagon</item>
+        <item>Mercedes</item>
+        <item>Peugeot</item>
+        <item>Swift</item>
+
+
+    </string-array>
+</resources>
