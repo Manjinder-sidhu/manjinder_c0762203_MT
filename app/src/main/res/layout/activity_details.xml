@@ -20,7 +20,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+       android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         >
         <TextView
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="mercedes"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="60dp"
             android:id="@+id/selectedcar"/>
 
 
@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"
         >
         <TextView
@@ -52,7 +52,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mercedes"
+            android:hint="days are"
             android:layout_marginLeft="40dp"
             android:id="@+id/number_days"/>
 
@@ -63,7 +63,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"
         >
         <TextView
@@ -74,30 +74,37 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mercedes"
-            android:layout_marginLeft="40dp"
+            android:hint="age is"
+            android:layout_marginLeft="70dp"
             android:id="@+id/driver_age"/>
 
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:text="Options : "/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="options:"/>
+            android:text="GPS:"/>
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mercedes"
-            android:layout_marginLeft="40dp"
-            android:id="@+id/options"/>
+            android:hint="GPS"
+            android:layout_marginLeft="65dp"
+            android:id="@+id/option1"/>
 
 
     </LinearLayout>
@@ -105,8 +112,50 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Child:"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="child"
+            android:layout_marginLeft="60dp"
+            android:id="@+id/option2"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extra millage:"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="extra millage"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/option3"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -116,8 +165,8 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mercedes"
-            android:layout_marginLeft="40dp"
+            android:hint="amount"
+            android:layout_marginLeft="80dp"
             android:id="@+id/amount"/>
 
     </LinearLayout>
@@ -125,8 +174,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -136,7 +185,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mercedes"
+            android:hint="total payment is"
             android:layout_marginLeft="40dp"
             android:id="@+id/total_payment"/>
 

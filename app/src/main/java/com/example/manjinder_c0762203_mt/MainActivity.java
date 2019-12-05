@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -25,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner car_names;
     EditText daily_rent;
-    TextView amount;
+    EditText amount;
     TextView number_days;
     SeekBar seekbar;
     RadioGroup driver;
     CheckBox gps;
     CheckBox child;
     CheckBox millage;
-    TextView total_Payment;
+    EditText total_Payment;
     Button view;
 
 
@@ -43,12 +45,18 @@ public class MainActivity extends AppCompatActivity {
     global variables
      */
     String car;
-
-
     int rent1 ;
     int rentTotal;
     int days;
     double totalAmount;
+    String driverAge;
+    String childstr = "0";
+    String gpsstr = "0";
+    String millagestr = "0";
+    String daysStr;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         gps = findViewById(R.id.gps);
         child = findViewById(R.id.childSeat);
         millage=findViewById(R.id.millage);
-        total_Payment = findViewById(R.id.total_payment);
+        total_Payment = findViewById(R.id.Tot_Payment);
         view = findViewById(R.id.viewdetails);
-
+//        total_Payment.addTextChangedListener(forAmount);
 
 //        public final int total{
 //            totalAmount = (Integer.parseInt(amount.getText().toString()) * 13)/100;
@@ -81,39 +89,50 @@ public class MainActivity extends AppCompatActivity {
                     case "BMW":
                       daily_rent.setText("120");
                       amount.setText("120");
-
-//                        Intent i = new Intent(MainActivity.this,Details.class);
-//                        i.putExtra("car","BMW");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
 
                       break;
                     case "Audi":
                         daily_rent.setText("100");
                         amount.setText("100");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
                     case "Cadillac":
                         daily_rent.setText("90");
                         amount.setText("90");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
                     case "Volks Wagon":
                         daily_rent.setText("80");
                         amount.setText("80");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
                     case "Mercedes":
                         daily_rent.setText("110");
                         amount.setText("110");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
                     case "Peugeot":
                         daily_rent.setText("70");
                         amount.setText("70");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
                     case "Swift":
                         daily_rent.setText("90");
                         amount.setText("90");
+                        totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                        total_Payment.setText(String.valueOf(totalAmount));
                         break;
 
 
@@ -139,6 +158,9 @@ seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             rentTotal = rent1 * days;
             amount.setText(String.valueOf(rentTotal));
+
+            totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+            total_Payment.setText(String.valueOf(totalAmount));
         }
             number_days.setText(String.valueOf(progress));
 
@@ -167,16 +189,25 @@ driver.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         else if(days > 0){
 
             if (checkedId == R.id.below) {
+                driverAge = "less than below";
                 rent1 = Integer.valueOf(amount.getText().toString()) + 5;
                 amount.setText(String.valueOf(rent1));
+                totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                total_Payment.setText(String.valueOf(totalAmount));
             }
             if (checkedId == R.id.between) {
+                driverAge = "between 20 and 60";
                 rent1 = Integer.valueOf(amount.getText().toString()) + 0;
                 amount.setText(String.valueOf(rent1));
+                totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                total_Payment.setText(String.valueOf(totalAmount));
             }
             if (checkedId == R.id.above) {
+                driverAge = "above 60";
                 rent1 = Integer.valueOf(amount.getText().toString()) - 10;
                 amount.setText(String.valueOf(rent1));
+                totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                total_Payment.setText(String.valueOf(totalAmount));
             }
         }
     }
@@ -187,8 +218,12 @@ gps.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked){
+            gpsstr = "$5";
             rent1 = Integer.valueOf(amount.getText().toString()) + 5 ;
             amount.setText(String.valueOf(rent1));
+            totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+            total_Payment.setText(String.valueOf(totalAmount));
+
         }
     }
 });
@@ -197,8 +232,11 @@ gps.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
+                    childstr = "$7";
                     rent1 = Integer.valueOf(amount.getText().toString()) + 7 ;
                     amount.setText(String.valueOf(rent1));
+                    totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                    total_Payment.setText(String.valueOf(totalAmount));
                 }
             }
         });
@@ -206,8 +244,11 @@ gps.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
+                    millagestr="$10";
                     rent1 = Integer.valueOf(amount.getText().toString()) + 10 ;
                     amount.setText(String.valueOf(rent1));
+                    totalAmount = (Double.parseDouble(amount.getText().toString()) * 13/100) +Double.parseDouble(amount.getText().toString()) ;
+                    total_Payment.setText(String.valueOf(totalAmount));
                 }
             }
         });
@@ -218,6 +259,18 @@ view.setOnClickListener(new View.OnClickListener() {
         car = car_names.getSelectedItem().toString();
         Intent i = new Intent(MainActivity.this,Details.class);
         i.putExtra("car",car);
+        i.putExtra("days",number_days.getText().toString());
+         i.putExtra("option1", gpsstr);
+daysStr = String.valueOf(days);
+i.putExtra("days",daysStr);
+        i.putExtra("option2", childstr);
+
+        i.putExtra("option3", millagestr);
+
+        i.putExtra("driverAge",driverAge);
+        i.putExtra("Amount",amount.getText().toString());
+        i.putExtra("totalAmount",total_Payment.getText().toString());
+        startActivity(i);
 
 
     }
@@ -225,5 +278,8 @@ view.setOnClickListener(new View.OnClickListener() {
 
 
 
+
     }
+
+
 }

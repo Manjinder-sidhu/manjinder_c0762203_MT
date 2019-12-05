@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ddc">
 
     <TextView
         android:layout_width="wrap_content"
@@ -182,14 +183,14 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center">
 
-        <TextView
+        <EditText
             android:id="@+id/Amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Amout"
             android:textSize="20dp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/Tot_Payment"
             android:layout_marginLeft="80dp"
             android:layout_width="wrap_content"
